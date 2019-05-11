@@ -1,0 +1,531 @@
+% Tips, Hints, and Useful Commands
+
+%    \textsc{}          Small Caps
+%    \textbf{}          Bold Text
+%    \textit{}          Italic Text
+%    \underline{}       Underline Text
+%    \cite{<tag>}       Inserts a Citation
+%    \Cref{<label>}     Inserts a Reference
+%    \(<Stuff>\)        In-line Math
+%    \vspace{xxcm}      Add Vertical Spacing in centimeters
+
+
+\documentclass[12pt, letterpaper]{article}
+
+\usepackage{lipsum}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{subcaption}
+\usepackage[labelfont=bf]{caption}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\hypersetup{hidelinks,pdfencoding=unicode}
+\usepackage[
+	style=ieee,
+	dashed=false,
+	citestyle=numeric-comp,
+	backend=bibtex,
+	refsegment=section,
+	sorting=none,
+	defernumbers=true]{biblatex}
+
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\renewcommand{\arraystretch}{1.5} % Changes the Vertical Padding in the Cells
+
+\newcommand{\nonumeq}[1]{\begin{align*}#1\end{align*}}
+\newcommand{\numeq}[2]{\begin{align}\label{#2}#1\end{align}}
+
+% BIBLIOGRAPHY LOCATION
+ % .  - This folder
+ % .. - Up one Folder
+ \addbibresource{./References/References.bib}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Title Page                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{titlepage}
+		\centering
+		\includegraphics[width=0.2\textwidth]{Logo.jpg}\par\vspace{1cm}
+	% Institution
+		{\scshape\LARGE University of Alberta \par}
+		\vspace{1cm}
+	% Department
+		{\scshape\Large Department of Mechanical Engineering\par}
+		\vspace{1.5cm}
+	% Title
+		{\huge\bfseries Report Title\par}
+		\vspace{2cm}
+	% Author
+		{\Large\itshape Last, First (Student Number)\par}
+		\vfill
+	% Additional Information
+		\par % New Paragraph
+		
+		% Include Group Members
+		\begin{comment} 
+			\textbf{\underline{Group X}:}\par
+			\vspace{0.5cm}
+			\textsc{Last, First} (Student Number)\par
+			\vspace{0.25cm}
+			\textsc{Last, First} (Student Number)\par
+			\vspace{0.25cm}
+			\textsc{Last, First} (Student Number)\par
+			\vspace{0.25cm}
+			\textsc{Last, First} (Student Number)\par
+			\vspace{0.25cm}
+			\textsc{Last, First} (T.A.)\par
+			\vspace{0.25cm}
+		\end{comment}
+		
+		\vfill
+	
+	% Bottom of the page
+			{\large \today\par} % For a Future Due Date Use {\large Month Day, Year\par} e.g. {\large February 23, 1993\par}
+	\end{titlepage}
+	
+	\onehalfspacing % \doublespacing or \singlespacing 
+	\setlength{\parskip}{1em} % Add Space Between Paragraphs
+	\pagenumbering{roman} % Page Numbers set to Roman Numerals 
+	\setcounter{page}{2} % Start at Page 2 to Count for the Title Page
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                  Abstract                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Abstract}\hspace{2.6ex}\label{Abstract}
+		\lipsum[23-25] % DELETE THIS LINE
+		\newpage
+	
+	\tableofcontents
+	\newpage
+	
+	\listoffigures
+	\listoftables
+	\newpage
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Nomenclature                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Nomenclature}\label{}
+		\begin{table*}[ht!]
+			\label{}
+			\begin{tabular}{r l}
+				$Symbol 0$& Definition 0\\
+				$Symbol 1$& Definition 1\\
+				$Symbol 2$& Definition 2\\
+				$Symbol n$& Definition n\\
+				%$\#$& Universal Symbol for keyword, now used to `hashtag' selfies.\\
+				%$DRA$& Initals of the original author of this template\\
+			\end{tabular}
+		\end{table*}
+		\subsection*{Greek Letters}
+			\begin{table*}[ht!]
+				\label{}
+				\begin{tabular}{r l}
+					$Greek Symbol 0$& Definition 0\\  
+					$Greek Symbol 1$& Definition 1\\  
+					$Greek Symbol 2$& Definition 2\\
+					$Greek Symbol n$& Definition n\\
+					%$\pi$& Mathematical constant for the ratio of the circumference of a circle to the diameter.\\
+					%$\tau$& Mathematical constant for the ratio of the circumference of a circle to the radius.\\
+				\end{tabular}
+			\end{table*}
+	\newpage
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                               Introduction                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\pagenumbering{arabic} % Set Page numbers to Arabic Numbers and Start from 1
+	\section{Introduction}\hspace{2.6ex}
+			\label{}
+			\lipsum[29-32] % DELETE THIS LINE
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                          Equipment And Procedure                           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Equipment \& Procedure}\label{}
+		\subsection{Equipment}\hspace{2.6ex}
+			\lipsum[4-7] % DELETE THIS LINE
+			\begin{itemize}
+				\item
+				{
+					\textsc{Equipment 1}
+					\begin{itemize}
+						\item Info 1
+						\item Info 2
+						\item Info 3
+					\end{itemize}
+				}
+				\item
+				{
+					\textsc{Equipment 2}
+					\begin{itemize}
+						\item Info 1
+						\item Info 2
+						\item Info 3
+					\end{itemize}
+				}
+			\end{itemize}
+		\subsection{Procedure}\hspace{2.6ex}
+			\lipsum[13-15] % DELETE THIS LINE
+			\begin{enumerate}
+				\item
+				{
+					\textsc{Step 1}
+					\begin{itemize}
+						\item Info 1
+					\end{itemize}
+				}
+				\item
+				{
+					\textsc{Step 2}
+					\begin{itemize}
+						\item Info 1
+						\item Info 2
+					\end{itemize}
+				}
+				\item
+				{
+					\textsc{Step 3}
+				}
+				\item
+				{
+					\textsc{Step 4}
+					\begin{itemize}
+						\item Info 1
+					\end{itemize}
+				}
+			\end{enumerate}
+            
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                              Theory Section                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Theory}\hspace{2.6ex}
+		\label{}
+		\lipsum[3] % DELETE THIS LINE
+		
+		\begin{align} % Creates Numbered Equation 
+			\label{eq:eg1} E = & m\times c^2
+		\end{align}
+		\newline Where, \newline
+		\indent \(E\) := is the Energy,\newline
+		\indent \(m\) := is the Mass, and \newline
+		\indent \(c\) := is the Speed of Light in a Vacuum.
+
+	\begin{align*} % Creates Unnumbered Equation 
+		KE = & \cfrac{1}{2}m\times v^2
+	\end{align*}
+	
+	\begin{align} % Creates Numbered and Aligned Equations 
+		\label{eq:eg3} E = & m\times c^2\\
+		\label{eq:eg4} E^2 = & m^2\times c^4 + \rho^2\times c^2
+	\end{align}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                          Results And Discussions                           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Results \& Discussion}\hspace{2.6ex}
+			\label{}
+			\lipsum[45-57] % DELETE THIS LINE
+	\newpage
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                         EXAMPLE SECTION (REMOVE)                           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{EXAMPLE SECTION PLEASE REMOVE}
+		This section aims to provide examples on how to structure and create specific components in your report document. The very first one is showing a citation, like the one at the end of this sentence \cite{TEST}. The second shows how to create more than one citation and how they are grouped \cite{testone,cite2,cite3,cite4,cite5}.
+		This sentence shows how a gap in the citations is handled \cite{testone,cite2,cite3,cite5}. 
+		\subsection{Tables}
+
+			% L - Left Aligned (Equal Spacing)
+			% C - Center Aligned (Equal Spacing)
+			% R - Right Aligned (Equal Spacing)
+			% l - Left Aligned (Fit to Contents)
+			% c - Center Aligned (Fit to Contents)
+			% r - Right Aligned (Fit to Contents)
+
+			\begin{table}[!htb]
+				\caption{This is a basic table}
+				\centering
+				\begin{tabularx}{0.75\textwidth}{LCR} 
+					% Equally spaced cells that are left, center, and reight aligned. 
+					% The entire table will be 75% the width of the text.
+					\hline
+					\textbf{Left Aligned Title} & \textbf{Centered Title} & \textbf{Right Aligned Title} \\\hline
+					This is left aligned & This is centered & This is right aligned \\
+					This is left aligned & This is centered & This is right aligned \\
+					This is left aligned & This is centered & This is right aligned \\
+					This is left aligned & This is centered & This is right aligned \\\hline
+				\end{tabularx}
+				\label{tab:basicTable}
+			\end{table}
+
+			\begin{table}[!htb]
+				\caption{This is a complex table.}
+				\centering
+				\begin{tabularx}{\textwidth}{lCR}
+					% Left most cell is fitted to the content.
+					% The center and right columns are equally spaced cells that are center, and reight aligned. 
+					% The entire table will be 75% the width of the text.
+					\hline
+					\multirow{2}{*}{\textbf{This is two row\quad}} & \multicolumn{2}{c}{\textbf{This is two columns}}\\\cline{2-3} % \cline draws a partial line across cells #-#
+					& \textbf{Centered Title} & \textbf{Right Aligned Title} \\\hline
+					\multirow{2}{*}{This is two row} & This is centered & This is right aligned \\
+					& This is centered & This is right aligned \\\cline{1-1}
+					\multirow{2}{*}{This is two row} & This is centered & This is right aligned \\
+					& This is centered & This is right aligned \\\hline
+				\end{tabularx}
+				\label{tab:complexTable}
+			\end{table}
+
+
+		\subsection{Figures}
+			This section will provide examples of how to create figures, and different types of multi/sub-figures. Additionally, if you have many figures in a section and they are bleeding too much into the following sections a \textbackslash{}clearpage command can be issued before the next section. However, note that this will force the next section to begin on a new page. 
+			\begin{figure}[!htb]
+				\centering
+				\includegraphics[width=0.7\textwidth]{example-image}
+				\caption{This is an example of a single image figure.}
+				\label{fig:singleImage}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:doubleImage:a}
+				\end{subfigure}
+				~
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:doubleImage:b}
+				\end{subfigure}
+				\caption{This is an example of a double image figure.}
+				\label{fig:doubleImage}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:tripleImage:a}
+				\end{subfigure}
+				\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
+				\par\vspace{1em}% Adds space between upper and lower images
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:tripleImage:b}
+				\end{subfigure}
+				~ % Adds space between the two lower figures
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:tripleImage:c}
+				\end{subfigure}
+				\caption{This is an example of a triple image figure.}
+				\label{fig:tripleImage}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\hspace*{\fill}% Adds space to left of top image (prevents two images from going to top)
+				\begin{subfigure}{\dimexpr 0.90\textwidth+1em\relax} % 0.9 = 0.45 + 0.45, and 1em is the width of ~
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:tripleImage:a}
+				\end{subfigure}
+				\hspace*{\fill} % Adds space to right of top image (prevents two images from going to top)
+				\par\vspace{1em}% Adds space between upper and lower images
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:tripleImage:b}
+				\end{subfigure}
+				~ % Adds space between the two lower figures
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:tripleImage:c}
+				\end{subfigure}
+				\caption{This is a second example of a triple image figure.}
+				\label{fig:tripleImage}
+			\end{figure}
+
+			\begin{figure}[!htb]
+				\centering
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:quadImage:a}
+				\end{subfigure}
+				~ % Adds space between the two top figures
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:quadImage:b}
+				\end{subfigure}
+				\par\vspace{1em} % Adds space between upper and lower images
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:quadImage:c}
+				\end{subfigure}
+				~ % Adds space between the two lower figures
+				\begin{subfigure}{0.45\textwidth}
+					\includegraphics[width=\textwidth]{example-image}
+					\caption{} % Leave blank for just letter
+					\label{fig:quadImage:d}
+				\end{subfigure}
+				\caption{This is an example of a quad image figure.}
+				\label{fig:quadImage}
+			\end{figure}
+
+			\clearpage % forces the remaining images (floats to be placed)
+		
+		
+		\subsection{Equations}
+			The following equation has no referencing number:
+			\nonumeq{E = & m\ c^2}
+
+			\Cref{eq:quickEq} has a reference to it though. Or for more control the source for \Cref{eq:quickEq} can be written out fully as it was for \Cref{eq:quickEq2}.
+
+			\numeq{pi = & 3.1415...}{eq:quickEq} % shorthand for the following way of writing equations.
+			\begin{align}\label{eq:quickEq2}
+				e = & 2.7183...
+			\end{align}
+
+			If you have multiple equations that you want arranged very neatly, use the align environment and you can assign individual equations numbers as shown in \Cref{eq:multiref:a,eq:multiref:b,eq:multiref:c}.
+			\begin{align}%Note: Alignment happens at the "=" character
+				\label{eq:multiref:a} Equation1 = & 1 + 1\\
+				\label{eq:multiref:b} Equation2 = & 2 + 2\\
+				\label{eq:multiref:c} Equation3 = & 3 + 3
+			\end{align}
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Conclusion                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Conclusion}\hspace{2.6ex}
+		\label{}
+		\lipsum[87-89] % DELETE THIS LINE
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                          Technical Recommendation                          %%
+%%                                 (Optional)                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Technical Recommendations}\hspace{2.6ex}
+		\label{}
+		\lipsum[100] % DELETE THIS LINE
+	\newpage
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                             Figures And Tables                             %%
+%%                                 (Optional)                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section{Figures \& Tables}
+		\subsection{Figures}
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width= 0.75\columnwidth]{example-image}
+				\caption{\textbf{Figure Caption 0}}
+				\label{fig:example1}
+			\end{figure}
+			\vspace{0.5cm}
+			\clearpage
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width= 0.75\columnwidth]{example-image}
+				\caption{Figure Caption 1}
+				\label{fig:example2}
+			\end{figure}
+			\vspace{0.5cm}
+			
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width= 0.75\columnwidth]{example-image}
+				\caption{Figure Caption n}
+				\label{fig:example3}
+			\end{figure}
+			\vspace{0.5cm}
+			\clearpage
+		\subsection{Tables}
+			\begin{table}[ht!]
+				\centering
+				\caption{Table Caption 0}\label{tab:example1}
+				\begin{tabularx}{\textwidth}{|LR C|C|}
+					\hline % Top Line
+					\multicolumn{2}{|c|}{\multirow{2}{*}{Cell 1}} & Cell 2 & Cell 3\\
+					\multicolumn{2}{|c|}{} & Cell 4 & Cell 5\\ \hline
+					Cell 6 & Cell 7 & Cell 8 & Cell 9\\
+					\hline % Bottom Line
+				\end{tabularx}
+			\end{table}
+			\vspace{0.5cm}
+			
+			\begin{table}[ht!]
+				\centering
+				\caption{Table Caption n}\label{tab:example2}
+				\begin{tabularx}{\textwidth}{|L|C|C|R|}
+					\hline % Top Line
+					Cell 1 & Cell 2 & Cell 3 & Cell 4\\
+					Cell 5 & Cell 6 & Cell 7 & Cell 8\\
+					Cell 9 & Cell 10 & Cell 11 & Cell 12\\
+					\hline % Bottom Line
+				\end{tabularx}
+			\end{table}
+			\vspace{0.5cm}
+                
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                References                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\clearpage
+	\printbibliography[heading=bibintoc]
+	\newpage
+        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                Appendices                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{appendix}
+	%%%%% Appendix A %%%%%
+		\pagenumbering{arabic}
+		\renewcommand*{\thepage}{A\arabic{page}}
+		
+		\section{Sample Calculations}
+		\{Insert Text Here\}
+		
+		\subsection{Calculations}
+		\{Insert Text Here\}
+		\newpage
+		
+		\subsection{Uncertainty Analysis}
+		\{Insert Text Here\}
+		\newpage
+	%%%%% Appendix B %%%%%
+		\pagenumbering{arabic}
+		\renewcommand*{\thepage}{B\arabic{page}}
+		
+		\section{Raw Data}
+		\{Insert Text Here\}
+		\newpage
+	%%%%% Appendix C %%%%%
+		%\pagenumbering{arabic}
+		%\renewcommand*{\thepage}{C\arabic{page}}
+		%
+		%\section{Section Title for Appendix C}
+		%\{Insert Text Here\}
+		%\newpage
+	\end{appendix}
+\end{document}
